@@ -112,7 +112,7 @@ pub fn run_preprocess() -> Result<()> {
 
     for tag in &sorted_tags {
         let entries = &tag_map[*tag];
-        tags_index_content.push_str(&format!("| [{}](tags/{}.md) | {} |\n", tag, tag, entries.len()));
+        tags_index_content.push_str(&format!("| [{}]({}.md) | {} |\n", tag, tag, entries.len()));
 
         let page_content = generate_tag_page(tag, entries);
         let tag_section = serde_json::json!({
@@ -172,7 +172,7 @@ pub fn generate_tags(book_dir: &str) -> Result<()> {
 
     for tag in &sorted_tags {
         let entries = &tag_map[*tag];
-        index_content.push_str(&format!("| [{}](tags/{}.md) | {} |\n", tag, tag, entries.len()));
+        index_content.push_str(&format!("| [{}]({}.md) | {} |\n", tag, tag, entries.len()));
 
         // Write individual tag page
         let page_content = generate_tag_page(tag, entries);
