@@ -1,0 +1,14 @@
+[package]
+name = "mdbook-tagger"
+version = "0.1.0"
+edition = "2024"
+description = "An mdbook preprocessor that generates tag index pages from frontmatter"
+
+[dependencies]
+mdbook = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+walkdir = "2"
+toml = "0.8"
