@@ -66,6 +66,21 @@ fn extract_title(path: &Path) -> Option<String> {
     None
 }
 
+/// Sanitize a tag name for use as a filename in SUMMARY.md links.
+fn sanitize_filename(tag: &str) -> String {
+    tag.chars()
+        .map(|c| match c {
+            ' ' => '-',
+            '\'' | '!' | '?' | '#' | '%' | '&' | '{' | '}' | '\\' | '<' | '>' | '*'
+            | '/' | ':' | '"' | '|' | '@' | '`' | '→' => '-',
+            c => c,
+        })
+        .collect::<String>()
+        .replace("--", "-")
+        .trim_matches('-')
+        .to_string()
+}
+
 /// Generate markdown content for a tag index page.
 fn generate_tag_page(tag: &str, entries: &[TagEntry]) -> String {
     let mut md = String::new();
@@ -107,7 +122,7 @@ pub fn run_preprocess() -> Result<()> {
 
     for tag in &sorted_tags {
         let entries = &tag_map[*tag];
-        let safe_name = tag.replace(' ', "-");
+        let safe_name = sanitize_filename(tag);
         tags_index_content.push_str(&format!("| [{}]({}.md) | {} |\n", tag, safe_name, entries.len()));
 
         let page_content = generate_tag_page(tag, entries);
@@ -168,7 +183,7 @@ pub fn generate_tags(book_dir: &str) -> Result<()> {
 
     for tag in &sorted_tags {
         let entries = &tag_map[*tag];
-        let safe_name = tag.replace(' ', "-");
+        let safe_name = sanitize_filename(tag);
         index_content.push_str(&format!("| [{}]({}.md) | {} |\n", tag, safe_name, entries.len()));
 
         // Write individual tag page
