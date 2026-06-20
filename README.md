@@ -1,4 +1,4 @@
-# mdbook-tagger
+# mdbook-tagging
 
 An mdbook preprocessor that generates tag index pages from frontmatter metadata.
 
@@ -33,7 +33,7 @@ tags:
 
 ```bash
 # Generate tag pages for a book
-mdbook-tagger generate ./my-book
+mdbook-tagging generate ./my-book
 ```
 
 ### As mdbook Preprocessor
@@ -42,7 +42,7 @@ Add to `book.toml`:
 
 ```toml
 [preprocessor.tagger]
-command = "mdbook-tagger preprocess"
+command = "mdbook-tagging preprocess"
 ```
 
 Then run `mdbook build` as usual.

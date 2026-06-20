@@ -5,7 +5,7 @@ use anyhow::Result;
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[command(name = "mdbook-tagger", about = "Generate tag index pages for mdbook")]
+#[command(name = "mdbook-tagging", about = "Generate tag index pages for mdbook")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,

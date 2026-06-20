@@ -1179,7 +1179,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mdbook-tagger"
+name = "mdbook-tagging"
 version = "0.1.0"
 dependencies = [
  "anyhow",

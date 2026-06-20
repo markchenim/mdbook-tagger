@@ -1,5 +1,5 @@
 [package]
-name = "mdbook-tagger"
+name = "mdbook-tagging"
 version = "0.1.0"
 edition = "2024"
 description = "An mdbook preprocessor that generates tag index pages from frontmatter"
