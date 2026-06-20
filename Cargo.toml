@@ -3,6 +3,7 @@ name = "mdbook-tagging"
 version = "0.2.0"
 edition = "2024"
 description = "An mdbook preprocessor that generates tag index pages from frontmatter"
+license = "MIT"
 
 [dependencies]
 mdbook = "0.4"
