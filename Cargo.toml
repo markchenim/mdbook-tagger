@@ -1,6 +1,6 @@
 [package]
 name = "mdbook-tagging"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2024"
 description = "An mdbook preprocessor that generates tag index pages from frontmatter"
 license = "MIT"
